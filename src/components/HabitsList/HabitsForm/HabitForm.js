@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './HabitForm.module.css';
+import background from '../../../images/mobile/modal-habit-bottom.png';
 
 export default class HabitForm extends Component {
   static propTypes = {
@@ -29,7 +30,15 @@ export default class HabitForm extends Component {
   render() {
     const { title, comment, repeat, color, remind } = this.state;
     return (
-      <form onSubmit={this.handleSubmit} className={styles.form}>
+      <form
+        onSubmit={this.handleSubmit}
+        className={styles.form}
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundPosition: 'bottom',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <div
           className={styles.header}
           style={{ backgroundColor: this.state.color }}

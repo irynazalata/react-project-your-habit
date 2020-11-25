@@ -1,5 +1,5 @@
 .form {
-  padding: 10px 0;
+  padding: 10px 0 50px;
 }
 
 .header {
@@ -45,12 +45,6 @@ label {
   font-family: 'Source Sans Roman';
   font-weight: 600;
 }
-
-/* input {
-  display: block;
-  outline: none;
-  /* border-bottom: solid 1px #f9f9fb; */
-/* } */
 
 .labelTitle {
   font-size: 16px;
@@ -127,6 +121,33 @@ label {
   border-bottom: 1px solid #949494;
 }
 
+.inputRemind {
+  position: relative;
+  width: 34px;
+  height: 15px;
+  border-radius: 6px;
+  background-color: #ede5f4;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.inputRemind:checked {
+  background-color: #764abb;
+}
+.inputRemind:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 6px;
+  background-color: #764abb;
+}
+.inputRemind:checked:before {
+  left: 19px;
+  background-color: #eee8f3;
+}
 .inputBtn {
   display: block;
   margin: 0 auto;
