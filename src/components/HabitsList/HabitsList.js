@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HabitsListItem from './HabitsListItem/HabitsListItem';
+
 import styles from './HabitsList.css';
 
 export default class HabitsList extends Component {
@@ -42,11 +43,13 @@ export default class HabitsList extends Component {
           <ul>
             {habits.map(habit => {
               return (
-                <HabitsListItem
-                  key={habit.id}
-                  progress={() => this.calculateProgress(habit.id)}
-                  title={habit.title}
-                />
+                <>
+                  <HabitsListItem
+                    key={habit.id}
+                    progress={() => this.calculateProgress(habit.id)}
+                    title={habit.title}
+                  />
+                </>
               );
             })}
           </ul>

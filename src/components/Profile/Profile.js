@@ -19,13 +19,14 @@ class Profile extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
+    alert(JSON.stringify(this.state, null, 2));
     //   Логіка збереження профіля користувача
-    this.setState({
-      avatar: '',
-      height: '',
-      weight: '',
-      birthdate: '',
-    });
+    // this.setState({
+    //   avatar: '',
+    //   height: '',
+    //   weight: '',
+    //   birthdate: '',
+    // });
   };
   render() {
     const { avatar, height, weight, birthdate } = this.state;
@@ -73,7 +74,7 @@ class Profile extends Component {
               name="birthdate"
             />
           </label>
-          <button type="button">Створити</button>
+          <button type="submit">Створити</button>
         </form>
       </>
     );
