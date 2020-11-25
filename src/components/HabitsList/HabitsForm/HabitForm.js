@@ -83,7 +83,7 @@ export default class HabitForm extends Component {
           </label>
 
           <label className={styles.labelColor}>
-            Оберіть колір
+            Обери колір
             <input
               name="color"
               type="color"

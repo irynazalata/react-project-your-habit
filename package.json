@@ -4,7 +4,7 @@
     "type": "git",
     "url": "git+https://irynazalata.github.io/react-project-your-habit.git"
   },
-  "homepage": "https://irynazalata.github.io/react-project-your-habit",
+  "homepage": "https://irynazalata.github.io/react-project-your-habit/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
