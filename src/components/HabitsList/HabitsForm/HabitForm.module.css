@@ -1,0 +1,143 @@
+.form {
+  padding: 10px 0;
+}
+
+.header {
+  padding: 15px 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.main {
+  padding: 15px 30px;
+}
+.closeBtn {
+  position: absolute;
+  top: 35px;
+  right: 27px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/VisualEditor_-_Icon_-_Close_-_white.svg/1200px-VisualEditor_-_Icon_-_Close_-_white.svg.png');
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  font-family: 'Candara';
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #411c89;
+  font-family: 'Source Sans Roman';
+  font-weight: 600;
+}
+
+/* input {
+  display: block;
+  outline: none;
+  /* border-bottom: solid 1px #f9f9fb; */
+/* } */
+
+.labelTitle {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #b7add3;
+  font-family: 'Candara';
+  background-color: transparent;
+}
+
+.inputTitle {
+  display: block;
+  outline: none;
+  margin-top: 15px;
+  width: 266px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border: transparent;
+  border-bottom: 1px solid #ffffff;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.inputTitle::placeholder {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  font-family: 'Candara';
+}
+
+.inputComment {
+  display: block;
+  outline: none;
+  margin-top: 15px;
+  margin-bottom: 28px;
+  width: 100%;
+  padding-bottom: 5px;
+  border: transparent;
+  border-bottom: 1px solid #949494;
+  background-color: transparent;
+}
+.labelRepeat {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 35px;
+  border-bottom: 1px solid #949494;
+}
+.inputRepeat {
+  border: none;
+  outline: none;
+}
+
+.labelColor {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 35px;
+  border-bottom: 1px solid #949494;
+}
+
+.inputColor {
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  width: 17px;
+  background-color: transparent;
+}
+
+.labelRemind {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 100px;
+  border-bottom: 1px solid #949494;
+}
+
+.inputBtn {
+  display: block;
+  margin: 0 auto;
+  width: 208px;
+  height: 37px;
+  border-radius: 18px;
+  background-color: rgba(234, 231, 242, 0.5019607843137255);
+  border: 1px solid #390e84;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #411c89;
+  font-weight: bold;
+  font-family: 'Candara';
+}

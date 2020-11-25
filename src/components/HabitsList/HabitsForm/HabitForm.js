@@ -29,51 +29,77 @@ export default class HabitForm extends Component {
   render() {
     const { title, comment, repeat, color, remind } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div
-            className={styles.header}
-            style={{ backgroundColor: this.state.color }}
-          >
-            <button type="button">X</button>
-            <h2>Нова звичка</h2>
-            <label htmlFor="title">Назва</label>
-            <input
-              name="title"
-              type="text"
-              value={title}
-              onChange={this.handleChange}
-            ></input>
-          </div>
-          <label htmlFor="comment">Мотивуй себе</label>
+      <form onSubmit={this.handleSubmit} className={styles.form}>
+        <div
+          className={styles.header}
+          style={{ backgroundColor: this.state.color }}
+        >
+          <button type="button" className={styles.closeBtn}></button>
+          <h2 className={styles.title}>Нова Звичка</h2>
+          <label htmlFor="title" className={styles.labelTitle}>
+            Назва
+          </label>
+          <input
+            className={styles.inputTitle}
+            name="title"
+            type="text"
+            value={title}
+            onChange={this.handleChange}
+            placeholder="Зарядка"
+          ></input>
+        </div>
+        <div className={styles.main}>
+          <label htmlFor="comment" className={styles.label}>
+            Мотивуй себе
+          </label>
           <input
             name="comment"
             type="textarea"
             value={comment}
             onChange={this.handleChange}
+            className={styles.inputComment}
+            placeholder="..."
           ></input>
-          <label htmlFor="repeat">Повторювати</label>
-          <select name="repeat" value={repeat} onChange={this.handleChange}>
-            <option value="1">Кожну годину &#10148;</option>
-            <option value="2">Кожні дві години &#10148;</option>
-          </select>
-          <label htmlFor="color">Оберіть колір</label>
-          <input
-            name="color"
-            type="color"
-            value={color}
-            onChange={this.handleChange}
-          ></input>
-          <label htmlFor="remind">Нагадати мені</label>
-          <input
-            name="remind"
-            type="checkbox"
-            checked={remind}
-            onChange={this.handleChange}
-          ></input>
-          <button type="submit">Зберегти</button>
-        </form>
-      </div>
+          <label className={styles.labelRepeat}>
+            Повторювати{' '}
+            <select
+              name="repeat"
+              value={repeat}
+              onChange={this.handleChange}
+              className={styles.inputRepeat}
+            >
+              <option value="1">Кожну годину </option>
+              <option value="2">Кожні дві години </option>
+            </select>
+          </label>
+
+          <label className={styles.labelColor}>
+            Оберіть колір
+            <input
+              name="color"
+              type="color"
+              value={color}
+              onChange={this.handleChange}
+              className={styles.inputColor}
+            ></input>
+          </label>
+
+          <label htmlFor="remind" className={styles.labelRemind}>
+            Нагадати мені
+            <input
+              name="remind"
+              type="checkbox"
+              checked={remind}
+              onChange={this.handleChange}
+              className={styles.inputRemind}
+            ></input>
+          </label>
+
+          <button type="submit" className={styles.inputBtn}>
+            Зберегти
+          </button>
+        </div>
+      </form>
     );
   }
 }
