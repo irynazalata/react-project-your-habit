@@ -35,7 +35,7 @@ export default class HabitForm extends Component {
         className={styles.form}
         style={{
           backgroundImage: `url(${background})`,
-          backgroundPosition: 'bottom',
+          backgroundPosition: 'bottom right',
           backgroundRepeat: 'no-repeat',
         }}
       >

@@ -8,8 +8,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <Authentification />;
-        <Profile />;
+        <Authentification />
+        <Profile />
         <HabitForm />
       </>
     );
