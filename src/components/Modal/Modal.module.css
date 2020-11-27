@@ -1,0 +1,18 @@
+.isHidden {
+  display: none;
+}
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(192, 192, 192, 0.603);
+}
+
+.modal {
+  width: 320px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './HabitForm.module.css';
 import background from '../../../images/mobile/modal-habit-bottom.png';
+import { v4 as uuid4v } from 'uuid';
 
 export default class HabitForm extends Component {
   static propTypes = {
@@ -18,7 +19,25 @@ export default class HabitForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    alert(JSON.stringify(this.state, null, 2));
+    const { title, color, comment, repeat, remind } = this.state;
+    const habit = {
+      id: uuid4v(),
+      title: title,
+      comment: comment,
+      repeat: repeat,
+      color: color,
+      remind: remind,
+      startDate: Date.now(),
+      progress: this.setProgress(Date.now()),
+    };
+    this.props.addHabit(habit);
+    this.setState({
+      title: '',
+      comment: '',
+      repeat: '',
+      color: '#390093',
+      remind: true,
+    });
   };
 
   handleChange = ({ target }) => {
@@ -26,6 +45,12 @@ export default class HabitForm extends Component {
     this.setState({
       [name]: type === 'checkbox' ? checked : value,
     });
+  };
+  setProgress = startDate => {
+    const dateNow = Date.now();
+    return Math.round(
+      ((dateNow - startDate) * 100) / (21 * 24 * 60 * 60 * 1000),
+    );
   };
   render() {
     const { title, comment, repeat, color, remind } = this.state;
@@ -43,7 +68,11 @@ export default class HabitForm extends Component {
           className={styles.header}
           style={{ backgroundColor: this.state.color }}
         >
-          <button type="button" className={styles.closeBtn}></button>
+          <button
+            type="button"
+            className={styles.closeBtn}
+            onClick={this.props.modalToggle}
+          ></button>
           <h2 className={styles.title}>Нова Звичка</h2>
           <label htmlFor="title" className={styles.labelTitle}>
             Назва
@@ -104,7 +133,11 @@ export default class HabitForm extends Component {
             ></input>
           </label>
 
-          <button type="submit" className={styles.inputBtn}>
+          <button
+            type="submit"
+            className={styles.inputBtn}
+            onClick={this.props.modalToggle}
+          >
             Зберегти
           </button>
         </div>
