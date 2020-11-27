@@ -17,6 +17,12 @@ export default class HabitForm extends Component {
     remind: true,
   };
 
+  closeId = null;
+
+  componentWillUnmount() {
+    clearTimeout(this.closeId);
+  }
+
   handleSubmit = event => {
     event.preventDefault();
     const { title, color, comment, repeat, remind } = this.state;
@@ -31,6 +37,7 @@ export default class HabitForm extends Component {
       progress: this.setProgress(Date.now()),
     };
     this.props.addHabit(habit);
+    alert(`Твоя звичка "${habit.title}" додана`);
     this.setState({
       title: '',
       comment: '',
@@ -38,6 +45,7 @@ export default class HabitForm extends Component {
       color: '#390093',
       remind: true,
     });
+    this.closeId = setTimeout(this.props.modalToggle, 1000);
   };
 
   handleChange = ({ target }) => {
@@ -133,11 +141,7 @@ export default class HabitForm extends Component {
             ></input>
           </label>
 
-          <button
-            type="submit"
-            className={styles.inputBtn}
-            onClick={this.props.modalToggle}
-          >
+          <button type="submit" className={styles.inputBtn}>
             Зберегти
           </button>
         </div>
