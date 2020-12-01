@@ -10,7 +10,7 @@ class HabitProfile extends Component {
         <h2>{match.params.habitId}</h2>
         <Link to="">Править</Link>
         <h3>Прогрес</h3>
-        <p>{location.state.progress}%</p>
+        <p>%</p>
         <h3>Графік розвитку звички</h3>
         <Link to="/profile/habit-list">Видалити прогрес</Link>
         <Link to="/profile/habit-list">Видалити звичку</Link>

@@ -14,7 +14,7 @@ const HabitsListItem = ({ title, progress }) => {
     >
       <li>
         <h3>{title}</h3>
-        <div>{progress}</div>
+        <div>{progress}%</div>
       </li>
     </Link>
   );
