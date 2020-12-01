@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Loginization.module.css';
 
 class Loginization extends Component {
@@ -14,6 +15,9 @@ class Loginization extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.props.history.push({
+      pathname: '/profile/habit-list',
+    });
     // alert(JSON.stringify(this.state));
   };
   render() {
@@ -21,9 +25,9 @@ class Loginization extends Component {
     return (
       <>
         <div className={styles.header}>
-          <button type="button" className={styles.headerButton}>
+          <Link to="/" className={styles.headerButton}>
             Назад
-          </button>
+          </Link>
         </div>
         <form
           action="submit"

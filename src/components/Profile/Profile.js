@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './Profile.module.css';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class Profile extends Component {
@@ -32,7 +33,7 @@ class Profile extends Component {
     const { avatar, height, weight, birthdate } = this.state;
     return (
       <>
-        <button type="button">Назад</button>
+        <Link to="/">Назад</Link>
         <form className={styles.form} onSubmit={this.handleSubmit}>
           <label>
             Змінити фото
@@ -76,6 +77,9 @@ class Profile extends Component {
           </label>
           <button type="submit">Створити</button>
         </form>
+        <Link to="/profile/habit-list" className={styles.btnHabits}>
+          До списку звичок
+        </Link>
       </>
     );
   }

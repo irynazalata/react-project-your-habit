@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Registration.module.css';
 
 class Registration extends Component {
@@ -16,7 +17,10 @@ class Registration extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    alert(JSON.stringify(this.state, null, 2));
+    this.props.history.push({
+      pathname: '/profile',
+    });
+    // alert(JSON.stringify(this.state, null, 2));
   };
 
   render() {
@@ -24,10 +28,10 @@ class Registration extends Component {
     return (
       <>
         <div className={styles.header}>
-          <button type="button" className={styles.headerButton}>
+          <Link to="/" className={styles.headerButton}>
             {' '}
             Назад
-          </button>
+          </Link>
         </div>
 
         <form

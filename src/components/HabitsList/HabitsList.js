@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import HabitsListItem from './HabitsListItem/HabitsListItem';
 import HabitForm from './HabitsForm/HabitForm';
 import Modal from '../Modal/Modal';
+import { Link } from 'react-router-dom';
 
 import styles from './HabitsList.module.css';
 
@@ -12,7 +13,7 @@ export default class HabitsList extends Component {
         id: '',
         title: 'Зарядка',
         startDate: '',
-        progress: '',
+        progress: 0,
       },
     ],
   };
@@ -45,7 +46,7 @@ export default class HabitsList extends Component {
             </Modal>
           )}
           <div>Мій профіль</div>
-          <button type="button">Назад</button>
+          <Link to="/profile">Назад</Link>
         </header>
         <div>Тут буде календар</div>
         <h1>Мої звички</h1>

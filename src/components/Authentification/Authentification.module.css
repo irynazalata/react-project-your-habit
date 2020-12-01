@@ -21,6 +21,9 @@
   font-weight: bold;
   font-family: 'Candara';
   outline: none;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2;
 }
 
 .enterBtn {
