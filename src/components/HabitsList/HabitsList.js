@@ -9,15 +9,23 @@ import styles from './HabitsList.module.css';
 export default class HabitsList extends Component {
   state = {
     habits: [
-      {
-        id: '',
-        title: 'Зарядка',
-        startDate: '',
-        progress: 0,
-      },
+      // {
+      //   id: '1',
+      //   title: 'Зарядка',
+      //   startDate: '',
+      //   progress: 0,
+      // },
     ],
   };
 
+  componentDidMount() {
+    const savedHabits = JSON.parse(localStorage.getItem('state')) || [];
+    this.setState({ habits: savedHabits });
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState !== this.state)
+      localStorage.setItem('state', JSON.stringify(this.state.habits));
+  }
   addHabit = habit => {
     this.setState(prevstate => ({
       habits: [...prevstate.habits, habit],
@@ -46,7 +54,7 @@ export default class HabitsList extends Component {
             </Modal>
           )}
           <div>Мій профіль</div>
-          <Link to="/profile">Назад</Link>
+          <Link to="/">Назад</Link>
         </header>
         <div>Тут буде календар</div>
         <h1>Мої звички</h1>
@@ -59,6 +67,7 @@ export default class HabitsList extends Component {
                   progress={habit.progress}
                   // progress={() => this.calculateProgress(habit.id)}
                   title={habit.title}
+                  id={habit.id}
                 />
               );
             })}

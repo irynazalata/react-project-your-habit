@@ -3,13 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import styles from './HabitsListItem.module.css';
 
-const HabitsListItem = ({ title, progress }) => {
-  console.log(progress);
+const HabitsListItem = ({ title, progress, id }) => {
   return (
     <Link
       to={{
-        pathname: `/profile/habit-list/${title}`,
-        state: { progress: progress },
+        pathname: `/profile/habit-list/${id}`,
+        state: { title: title, progress: progress },
       }}
     >
       <li>
