@@ -23,13 +23,6 @@ const routes = [
     path: '/profile',
     component: lazy(() => import('./components/Profile/Profile')),
   },
-  // {
-  //   exact: true,
-  //   path: '/profile/habit-list/:habitId',
-  //   component: lazy(() =>
-  //     import('./components/HabitsList/HabitProfile/HabitProfile'),
-  //   ),
-  // },
 ];
 
 export default routes;

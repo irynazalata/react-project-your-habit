@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const HabitsListItem = ({ title, progress, id }) => {
   return (
     <Link
+      key={id}
       to={{
         pathname: `/profile/habit-list/${id}`,
         state: { title: title, progress: progress },
