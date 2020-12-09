@@ -20,6 +20,7 @@ class Profile extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
+    this.props.addUser(this.state);
     alert(JSON.stringify(this.state, null, 2));
     //   Логіка збереження профіля користувача
     // this.setState({

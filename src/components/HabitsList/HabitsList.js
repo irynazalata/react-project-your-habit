@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import HabitsListItem from './HabitsListItem/HabitsListItem';
 import HabitForm from './HabitsForm/HabitForm';
 import Modal from '../Modal/Modal';
+import store from '../../redux/store';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import removeHabit from '../../redux/actions/habit-actions';
 // import Context from '../../context/Context'; варіант 1
 // import UserContext from '../../context/Context'; варіант 2
 import withContext from '../hoc/withContext';
@@ -45,7 +48,8 @@ class HabitsList extends Component {
 
   render() {
     const { habits } = this.state;
-    const { user } = this.props;
+    const user = store.getState();
+    console.log(user);
     return (
       <>
         {/* <UserContext.Consumer>
@@ -93,5 +97,11 @@ class HabitsList extends Component {
     );
   }
 }
-
-export default withContext(HabitsList);
+const mapStateToProps = (state, props) => ({
+  habits: state.habits,
+});
+const mapDispatchToProps = {
+  removeHabit,
+};
+// export default withContext(HabitsList);
+export default connect(mapStateToProps, mapDispatchToProps)(HabitsList);

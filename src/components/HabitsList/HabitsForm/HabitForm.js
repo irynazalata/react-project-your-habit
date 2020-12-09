@@ -1,10 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import addHabit from '../../../redux/actions/habit-actions.js';
 import styles from './HabitForm.module.css';
 import background from '../../../images/mobile/modal-habit-bottom.png';
 import { v4 as uuid4v } from 'uuid';
 
-export default class HabitForm extends Component {
+const store = {
+  user: {
+    id: 1,
+    email: 'mango@gmail.com',
+    name: 'Mango',
+    phone: '123456789',
+    avatar:
+      'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/8_avatar-512.png',
+    habits: [
+      {
+        id: uuid4v(),
+        title: 'Зарядка',
+        comment: 'Не хочу бути жирним',
+        repeat: 'Щодня',
+        color: '#390093',
+        remind: true,
+        progress: '10',
+      },
+    ],
+  },
+  allHabits: [],
+};
+class HabitForm extends Component {
   static propTypes = {
     prop: PropTypes,
   };
@@ -36,8 +60,9 @@ export default class HabitForm extends Component {
       startDate: Date.now(),
       progress: this.setProgress(Date.now()),
     };
+    // this.props.addHabit(habit);проп из Арр
     this.props.addHabit(habit);
-    alert(`Твоя звичка "${habit.title}" додана`);
+    this.props.alert(`Твоя звичка "${habit.title}" додана`);
     this.setState({
       title: '',
       comment: '',
@@ -149,3 +174,13 @@ export default class HabitForm extends Component {
     );
   }
 }
+
+// const mapDispatchToProps = dispatch => ({
+//   addHabit: habit => dispatch(actions.addHabit(habit)),
+// });
+
+const mapDispatchToProps = {
+  addHabit,
+};
+
+export default connect(mapDispatchToProps)(HabitForm);

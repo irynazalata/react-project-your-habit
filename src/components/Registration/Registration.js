@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Registration.module.css';
+import { connect } from 'react-redux';
+import addUser from '../../redux/actions/user-actions';
+import store from '../../redux/store';
 
 class Registration extends Component {
   state = {
+    id: '',
     name: '',
     surname: '',
     tel: '',
@@ -16,7 +20,11 @@ class Registration extends Component {
   };
 
   handleSubmit = event => {
+    console.log(store.getState());
     event.preventDefault();
+    const { id, name, surname, tel } = this.state;
+    // this.props.addUser(name, surname, tel);
+    addUser.addUser();
     this.props.history.push({
       pathname: '/profile',
     });
@@ -68,4 +76,11 @@ class Registration extends Component {
   }
 }
 
-export default Registration;
+const mapStateToProps = (state, props) => ({
+  state,
+});
+const mapDispatchToProps = {
+  addUser: addUser.addUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Registration);

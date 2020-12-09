@@ -16,12 +16,12 @@ class App extends Component {
   state = {
     showModal: false,
     users: [
-      {
-        email: '',
-        name: '',
-        phone: '',
-        habits: [],
-      },
+      // {
+      //   email: '',
+      //   name: '',
+      //   phone: '',
+      //   habits: [],
+      // },
     ],
   };
 
@@ -34,12 +34,12 @@ class App extends Component {
     return (
       <>
         <UserContext>
-          <ErrorBoundary>
-            <Suspense fallback={<h1>Loading...</h1>}>
-              {routes.map((route, idx) => (
-                <Route key={idx} {...route}></Route>
-              ))}
-              {/* <Route path="/" exact component={Authentification} />
+          {/* <ErrorBoundary> */}
+          <Suspense fallback={<h1>Loading...</h1>}>
+            {routes.map((route, idx) => (
+              <Route key={idx} {...route}></Route>
+            ))}
+            {/* <Route path="/" exact component={Authentification} />
         <Route path="/login" component={Loginization} />
         <Route path="/registr" component={Registration} />
         <Route path="/profile" exact component={Profile} />
@@ -48,30 +48,30 @@ class App extends Component {
           exact
           component={HabitProfile}
         /> */}
-              <Route
-                path="/profile/habit-list"
-                exact
-                render={props => (
-                  <HabitsList
-                    {...props}
-                    showModal={showModal}
-                    modalToggle={this.modalToggle}
-                  />
-                )}
-              />
-              <Route
-                path="/profile/habit-list/:habitId"
-                exact
-                render={props => (
-                  <HabitProfile
-                    {...props}
-                    showModal={showModal}
-                    modalToggle={this.modalToggle}
-                  />
-                )}
-              />
-            </Suspense>
-          </ErrorBoundary>
+            <Route
+              path="/profile/habit-list"
+              exact
+              render={props => (
+                <HabitsList
+                  {...props}
+                  showModal={showModal}
+                  modalToggle={this.modalToggle}
+                />
+              )}
+            />
+            <Route
+              path="/profile/habit-list/:habitId"
+              exact
+              render={props => (
+                <HabitProfile
+                  {...props}
+                  showModal={showModal}
+                  modalToggle={this.modalToggle}
+                />
+              )}
+            />
+          </Suspense>
+          {/* </ErrorBoundary> */}
         </UserContext>
       </>
     );

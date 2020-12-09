@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from '../../Modal/Modal';
 import HabitForm from '../HabitsForm/HabitForm';
+// import actions from '../../../redux/actions/habit-actions';
 
 class HabitProfile extends Component {
   render() {
@@ -28,7 +29,9 @@ class HabitProfile extends Component {
         <p>{location.state.progress}%</p>
         <h3>Графік розвитку звички</h3>
         <Link to="/profile/habit-list">Видалити прогрес</Link>
-        <Link to="/profile/habit-list">Видалити звичку</Link>
+        <Link to="/profile/habit-list" onClick={() => console.log('Hello')}>
+          Видалити звичку
+        </Link>
       </>
     );
   }
