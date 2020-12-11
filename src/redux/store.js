@@ -1,8 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import habitsReducer from './reducers/habit-reducers';
-import userReducer from './reducers/user-reducers';
+import { configureStore } from '@reduxjs/toolkit';
+// import habits from './reducers/habit-reducers';
+import user from './reducers/user-reducers';
 
-const reducer = combineReducers({ habits: habitsReducer, user: userReducer });
-const store = createStore(reducer);
+const store = configureStore({
+  reducer: { user },
+});
 
 export default store;

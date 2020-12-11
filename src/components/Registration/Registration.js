@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Registration.module.css';
 import { connect } from 'react-redux';
-import addUser from '../../redux/actions/user-actions';
+import { addUser } from '../../redux/actions/user-actions';
 import store from '../../redux/store';
+import { addUserOperation } from '../../redux/operations/userOperations';
 
 class Registration extends Component {
   state = {
-    id: '',
     name: '',
     surname: '',
-    tel: '',
+    phone: '',
   };
 
   handleChange = ({ target }) => {
@@ -20,11 +20,9 @@ class Registration extends Component {
   };
 
   handleSubmit = event => {
-    console.log(store.getState());
     event.preventDefault();
-    const { id, name, surname, tel } = this.state;
-    // this.props.addUser(name, surname, tel);
-    addUser.addUser();
+    // const { id, name, surname, tel } = this.state;
+    this.props.addUserOperation(this.state);
     this.props.history.push({
       pathname: '/profile',
     });
@@ -32,7 +30,7 @@ class Registration extends Component {
   };
 
   render() {
-    const { name, surname, tel } = this.state;
+    const { name, surname, phone } = this.state;
     return (
       <>
         <div className={styles.header}>
@@ -61,12 +59,12 @@ class Registration extends Component {
             value={surname}
             onChange={this.handleChange}
           />
-          <label htmlFor="tel">Номер телефона</label>
+          <label htmlFor="phone">Номер телефона</label>
           <input
-            type="tel"
-            name="tel"
+            type="phone"
+            name="phone"
             placeholder="+380"
-            value={tel}
+            value={phone}
             onChange={this.handleChange}
           />
           <input type="submit" value="Далі" />
@@ -76,11 +74,13 @@ class Registration extends Component {
   }
 }
 
-const mapStateToProps = (state, props) => ({
-  state,
+const mapStateToProps = state => ({
+  name: state.user.name,
+  surname: state.user.surname,
+  phone: state.user.phone,
 });
 const mapDispatchToProps = {
-  addUser: addUser.addUser,
+  addUserOperation,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Registration);

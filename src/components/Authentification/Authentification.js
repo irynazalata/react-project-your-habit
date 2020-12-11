@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 import styles from './Authentification.module.css';
 import background from '../../images/mobile/back-wave-bottom.png';
+import { connect } from 'react-redux';
+import addUser from '../../redux/actions/user-actions';
 
 export default class Authentification extends Component {
   state = {
@@ -54,9 +56,6 @@ export default class Authentification extends Component {
             </Link>
           </section>
         </div>
-
-        {/* <Loginization /> */}
-        {/* <Registration /> */}
       </>
     );
   }

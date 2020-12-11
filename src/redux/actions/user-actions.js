@@ -1,17 +1,34 @@
 import types from '../action-types';
-import { v4 as uuidv4 } from 'uuid';
+import { createAction } from '@reduxjs/toolkit';
 
-const addUser = (name = 'name', phone = '876543') => ({
-  type: types.ADD_USER,
-  payload: {
-    id: uuidv4(),
-    name: name,
-    phone: phone,
-  },
-});
-const updateUser = obj => ({
-  type: types.UPDATE_USER,
-  payload: {},
-});
+// const addUser = (name = 'name', phone = '876543') => ({
+//   type: types.ADD_USER,
+//   payload: {
+//     name: name,
+//     phone: phone,
+//   },
+// });
+// const updateUser = obj => ({
+//   type: types.UPDATE_USER,
+//   payload: {},
+// });
 
-export default { addUser, updateUser };
+const addUserRequest = createAction('ADD_USER_REQUEST');
+const addUserSuccess = createAction('ADD_USER_SUCCESS');
+const addUserError = createAction('ADD_USER_ERROR');
+
+// const updateUserRequest = createAction('UPDATE_USER_REQUEST');
+// const updateUserSuccess = createAction('UPDATE_USER_SUCCESS');
+// const updateUserError = createAction('UPDATE_USER_ERROR');
+
+const updateUser = createAction('UPDATE_USER');
+
+export {
+  addUserRequest,
+  addUserSuccess,
+  addUserError,
+  updateUser,
+  // updateUserRequest,
+  // updateUserSuccess,
+  // updateUserError,
+};
