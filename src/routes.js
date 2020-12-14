@@ -20,7 +20,7 @@ const routes = [
   },
   {
     exact: true,
-    path: '/profile',
+    path: '/profile/:id',
     component: lazy(() => import('./components/Profile/Profile')),
   },
 ];

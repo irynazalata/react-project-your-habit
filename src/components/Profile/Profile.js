@@ -3,7 +3,8 @@ import styles from './Profile.module.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { updateUser } from '../../redux/actions/user-actions';
+import { updateUserOperation } from '../../redux/operations/userOperations';
+import userSelectors from '../../redux/selectors/userSelectors';
 
 class Profile extends Component {
   static propTypes = {};
@@ -23,7 +24,9 @@ class Profile extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    this.props.updateUser(this.state);
+    const { avatar, height, weight, birthdate } = this.state;
+    const id = this.props.match.params.id;
+    this.props.updateUser(id, avatar, height, weight, birthdate);
     alert(JSON.stringify(this.state, null, 2));
     //   Логіка збереження профіля користувача
     // this.setState({
@@ -85,13 +88,14 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => ({
-  avatar: state.user.avatar,
-  height: state.user.height,
-  weight: state.user.weight,
-  birthdate: state.user.birthdate,
+  avatar: userSelectors.getUserAvatar(state),
+  height: userSelectors.getUserHeight(state),
+  weight: userSelectors.getUserWeight(state),
+  birthdate: userSelectors.getUserBirthdate(state),
+  id: userSelectors.getUserId(state),
 });
 
 const mapDispatchToProps = {
-  updateUser,
+  updateUser: updateUserOperation,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

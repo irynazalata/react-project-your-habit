@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { addUser } from '../../redux/actions/user-actions';
 import store from '../../redux/store';
 import { addUserOperation } from '../../redux/operations/userOperations';
+import userSelectors from '../../redux/selectors/userSelectors';
 
 class Registration extends Component {
   state = {
@@ -13,6 +14,13 @@ class Registration extends Component {
     phone: '',
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.id !== this.props.id) {
+      this.props.history.push({
+        pathname: `/profile/${this.props.id}`,
+      });
+    }
+  }
   handleChange = ({ target }) => {
     this.setState({
       [target.name]: target.value,
@@ -21,12 +29,8 @@ class Registration extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // const { id, name, surname, tel } = this.state;
-    this.props.addUserOperation(this.state);
-    this.props.history.push({
-      pathname: '/profile',
-    });
-    // alert(JSON.stringify(this.state, null, 2));
+    const { id, addUserOperation } = this.props;
+    addUserOperation(this.state);
   };
 
   render() {
@@ -75,9 +79,7 @@ class Registration extends Component {
 }
 
 const mapStateToProps = state => ({
-  name: state.user.name,
-  surname: state.user.surname,
-  phone: state.user.phone,
+  id: userSelectors.getUserId(state),
 });
 const mapDispatchToProps = {
   addUserOperation,

@@ -16,4 +16,23 @@ const addUserOperation = ({ name, surname, phone }) => dispatch => {
     .catch(error => dispatch(addUserError(error)));
 };
 
-export { addUserOperation };
+const updateUserOperation = (
+  id,
+  avatar,
+  height,
+  weight,
+  birthdate,
+) => dispatch => {
+  dispatch(updateUserRequest());
+  axios
+    .patch(`http://localhost:2000/users/${id}`, {
+      avatar,
+      height,
+      weight,
+      birthdate,
+    })
+    .then(response => dispatch(updateUserSuccess(response.data)))
+    .catch(error => dispatch(updateUserError(error)));
+};
+
+export { addUserOperation, updateUserOperation };

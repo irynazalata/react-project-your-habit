@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import types from '../action-types';
 import habits from './habit-reducers';
-import { updateUser } from '../actions/user-actions';
 // import { addHabit, updateHabit, removeHabit } from '../actions/habit-actions';
 import { createReducer } from '@reduxjs/toolkit';
 import {
@@ -11,6 +10,7 @@ import {
   updateUserRequest,
   updateUserSuccess,
   updateUserError,
+  setUserToDefault,
 } from '../actions/user-actions';
 
 const INITIAL_STATE = {
@@ -49,6 +49,7 @@ const INITIAL_STATE = {
 
 const userReducer = createReducer(INITIAL_STATE, {
   [addUserSuccess]: (state, action) => ({ ...state, ...action.payload }),
-  [updateUser]: (state, action) => ({ ...state, ...action.payload }),
+  [updateUserSuccess]: (state, action) => ({ ...state, ...action.payload }),
+  [setUserToDefault]: () => ({ ...INITIAL_STATE }),
 });
 export default userReducer;

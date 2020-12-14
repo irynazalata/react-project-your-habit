@@ -11,6 +11,8 @@ import routes from './routes';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 // import Context from './context/Context';
 import UserContext from './context/Context';
+import { setUserToDefault } from './redux/actions/user-actions';
+import { connect } from 'react-redux';
 
 class App extends Component {
   state = {

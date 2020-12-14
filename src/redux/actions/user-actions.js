@@ -17,18 +17,18 @@ const addUserRequest = createAction('ADD_USER_REQUEST');
 const addUserSuccess = createAction('ADD_USER_SUCCESS');
 const addUserError = createAction('ADD_USER_ERROR');
 
-// const updateUserRequest = createAction('UPDATE_USER_REQUEST');
-// const updateUserSuccess = createAction('UPDATE_USER_SUCCESS');
-// const updateUserError = createAction('UPDATE_USER_ERROR');
+const updateUserRequest = createAction('UPDATE_USER_REQUEST');
+const updateUserSuccess = createAction('UPDATE_USER_SUCCESS');
+const updateUserError = createAction('UPDATE_USER_ERROR');
 
-const updateUser = createAction('UPDATE_USER');
+const setUserToDefault = createAction('SET_USER_TO_DEFAULT');
 
 export {
   addUserRequest,
   addUserSuccess,
   addUserError,
-  updateUser,
-  // updateUserRequest,
-  // updateUserSuccess,
-  // updateUserError,
+  updateUserRequest,
+  updateUserSuccess,
+  updateUserError,
+  setUserToDefault,
 };
